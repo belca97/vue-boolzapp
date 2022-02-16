@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="line-blue"></div>
+
+
+    <!-- inizio il container che conterrà la mia applicazione di messaggistica -->
+    <div class="container" id="root">
+
+        <!-- divido il container in due parti, sinistra e destra  -->
+        <div class="left">
+
+            <!-- divido l'header in due parti -->
+         <div class="header-left">
+
+             <div class="header-left-img">
+                <img src="img/avatar_1.jpg" alt="">
+                <h3>Matteo Belcari</h3>
+             </div>
+
+             <div class="header-left-icons">
+                <i class="fas fa-circle-notch"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+             </div>
+         </div>
+         <!-- fine header di sinistra  -->
+
+         <!-- inizio parte cieleste delle notifiche -->
+
+         <div class="notification">
+             <div class="notification-icon">
+                <i class="fas fa-bell-slash"></i>
+             </div>
+             <div class="notification-text">
+                 <h4>Ricevi notifiche di nuovi messaggi</h3>
+                 <span>Attiva notifiche desktop</span>
+             </div>
+         </div>
+
+         <!-- input per la ricerca -->
+
+         <div class="container-search">
+            <input type="text" class="search">
+         </div>
+
+         <!-- parte di contenitrice dei contatti -->
+
+         <div class="sidebar-chat">
+            <div class="container-chat"  v-for="contact in contacts">
+                <div class="container-chat-logo">
+                   <img  :src="'./img/avatar'  + contact.avatar + '.jpg'">
+                </div>
+                <div class="container-chat-text">
+                    <h3>{{contact.name}}</h3>
+                    <span class="text-contact"></span>
+                </div>
+            </div>
+         </div>
+
+       </div>
+       
+
+       <!-- inizio la parte destra dell'applicazione -->
+       <div class="rigth">
+           <div class="header-right">
+                <div class="container-chat">
+                    <div class="container-chat-logo">
+                    <img src="img/avatar_2.jpg" alt="">
+                    </div>
+                    <div class="container-chat-text">
+                        <h3>Michele</h3>
+                        <span>Tutto</span>
+                    </div>
+                </div>
+
+                <div class="header-right-text">
+                    <i class="far fa-search"></i>
+                    <i class="far fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+           </div>
+
+
+           <!-- inizio main, corpo messaggistica dell'applicazione -->
+           <div class="main-right">
+                    <div class="message received">
+                        lorem ipsum
+                    </div>
+
+                    <div class="message sent">
+                        lorem ipsum
+                    </div>
+
+           </div>
+
+           <!-- footer con input di messaggi -->
+           <div class="footer-right">
+                <i class="far fa-smile"></i>
+                <input type="text" placeholder="Scrivi un messaggio">
+                <i class="fas fa-microphone"></i>
+           </div>
+
+
+        </div>
+
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
