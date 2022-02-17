@@ -9,20 +9,19 @@
 
 body{
     height: 100vh;
-    width: 100%;
-    background-color: #479388;
+    width: 100vw;
+    background-color: lightgray;
+    min-width: 1000px;
 }
 
 .container{
-    min-width: 500px;
-    width: 80%;
+    width: 80vw;
     height: 90vh;
     margin: 0px auto;
-    margin-top: 50px;
     position: absolute;
-    position: absolute;
-    transform: translate(15%, -18%);
+    transform: translate(12%, -10%);
     background-color: grey;
+    min-width: 1000px;
 }
 
 .container::after{
@@ -33,7 +32,7 @@ body{
 
 .line-blue{
     height: 100px;
-    background-color: #1919be;
+    background-color: #479388;
     position: relative;
 }
 
@@ -58,7 +57,7 @@ body{
 .header-left{
     height: 80px;
     padding: 10px 10px;
-    background-color: #479388;
+    background-color: lightgray;
 }
 
 .header-left::after{
@@ -73,6 +72,7 @@ body{
     display: flex;
     align-items: center;
     height: 100%;
+    flex-shrink: 0;
 }
 
 .header-left-icons{
@@ -84,6 +84,7 @@ body{
     justify-content: space-around;
     color: #B1B1B1;    
     font-size: 23px;
+    flex-shrink: 0;
 }
 
 .header-left-img img{
@@ -102,6 +103,8 @@ body{
     padding: 0px 10px;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .notification-icon{
@@ -112,6 +115,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 .notification-icon i{
     color: aqua;
@@ -120,8 +125,10 @@ body{
 .notification-text{
     margin-left: auto;
 }
-.notification-text span{
+.notification-text a{
+    text-decoration: none;
     border-bottom: 1px solid white;
+    color: white;
 }
 
 .notification-text h4{
@@ -135,7 +142,16 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #B1B1B1;
+    background-color: lightgray;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.container-search i{
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    color: #B1B1B1;
 }
 
 
@@ -144,8 +160,10 @@ body{
     border-radius: 20px;
     height: 30px;
     border: 1px solid white;
+    padding: 0px 10px;
+    color: #B1B1B1;
+    text-align: center;
 }
-
 /* fine barra di ricerca */
 
 /* inizio parte chat */
@@ -178,6 +196,14 @@ body{
 
 .text-contact{
     max-width: 23ch;
+    text-overflow: ellipsis;
+}
+
+.text-contact-right{
+    text-align: right;
+    color: #B1B1B1;
+    font-size: 10px;
+    margin-left: auto;
 }
 
 /* fine parte chat */
@@ -190,7 +216,7 @@ body{
 
 .header-right{
     height: 80px;
-    background-color: #479388;
+    background-color: lightgray;
 }
 
 .header-right::after{
@@ -205,17 +231,25 @@ body{
 .header-right-text{
     float: right;
     width: 20%;
-    background-color: #479388;
+    background-color: lightgray;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+.div-header-rigth{
+    color: #757272;
+    margin-top: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
 /* fine header right */
 
 .header-right-text i{
-    padding: 0px 20px;    
+    padding: 0px 20px;
+    color: #B1B1B1; 
 }
 
 /* inizio main dove verranno mostrati i messaggi */
@@ -223,12 +257,13 @@ body{
 .main-right{
     height: calc(100% - 130px);
     background-image: url(img/mine.jpg);
-    padding: 20px 20px;
+    padding: 20px 50px;
+    overflow-y: scroll;
 }
 
 .message{
     width: 200px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -236,11 +271,19 @@ body{
 
 .message.received{
     background-color: white;
+    margin-top: 10px;
 }
 
 .message.sent {
     background-color: #d5f9ba;
     margin-left: auto;
+    margin-top: 10px;
+}
+
+.text-bottom-right{
+    text-align: right;
+    color: #B1B1B1;
+    font-size: 10px;
 }
 /* fine main dove verranno mostrati i messaggi */
 
@@ -253,6 +296,10 @@ body{
     justify-content: space-between;
     padding: 0px 10px;
     background-color: lightgrey;
+}
+
+.footer-right i{
+    color: #757373;
 }
 
 .footer-right input{

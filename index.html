@@ -22,7 +22,7 @@
          <div class="header-left">
 
              <div class="header-left-img">
-                <img src="img/avatar_1.jpg" alt="">
+                <img src="img/avatar_8.jpg" alt="">
                 <h3>Matteo Belcari</h3>
              </div>
 
@@ -41,28 +41,30 @@
                 <i class="fas fa-bell-slash"></i>
              </div>
              <div class="notification-text">
-                 <h4>Ricevi notifiche di nuovi messaggi</h3>
-                 <span>Attiva notifiche desktop</span>
+                 <h4>Ricevi notifiche di nuovi messaggi</h4>
+                 <a href="#">Attiva notifiche desktop</a>
              </div>
          </div>
 
          <!-- input per la ricerca -->
 
          <div class="container-search">
-            <input type="text" class="search">
+            <i class="fas fa-search"></i>
+            <input type="text" class="search" placeholder="Cerca o inizia una nuova chat">
          </div>
 
-         <!-- parte di contenitrice dei contatti -->
+         <!-- parte contenitrice dei contatti -->
 
          <div class="sidebar-chat">
-            <div class="container-chat"  v-for="contact in contacts">
+            <div class="container-chat" :class="(index == active)?'active' :''" v-for="(contact, index) in contacts" @click=contactActive(index) >
                 <div class="container-chat-logo">
-                   <img  :src="'./img/avatar'  + contact.avatar + '.jpg'">
+                   <img  :src="'./img/avatar'  + (contact.avatar) + '.jpg'">
                 </div>
                 <div class="container-chat-text">
                     <h3>{{contact.name}}</h3>
-                    <span class="text-contact"></span>
+                    <span class="text-contact">lorem ipsum</span>
                 </div>
+                <span class="text-contact-right">10/01/2020 15:50:00</span>
             </div>
          </div>
 
@@ -74,17 +76,18 @@
            <div class="header-right">
                 <div class="container-chat">
                     <div class="container-chat-logo">
-                    <img src="img/avatar_2.jpg" alt="">
+                    <img src="img/avatar_1.jpg" alt="">
                     </div>
                     <div class="container-chat-text">
                         <h3>Michele</h3>
-                        <span>Tutto</span>
+                        <div class="div-header-rigth">Ultimo accesso oggi alle 10/01/2020</div>
+                        <div class="div-header-rigth">Alle 17:41</div>
                     </div>
                 </div>
 
                 <div class="header-right-text">
-                    <i class="far fa-search"></i>
-                    <i class="far fa-paperclip"></i>
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
            </div>
@@ -92,14 +95,10 @@
 
            <!-- inizio main, corpo messaggistica dell'applicazione -->
            <div class="main-right">
-                    <div class="message received">
-                        lorem ipsum
+                    <div class="message" v-for="message in contacts[active].messages" :class="message.status">
+                        {{message.text}}
+                        <span class="text-bottom-right">{{message.date}}</span>
                     </div>
-
-                    <div class="message sent">
-                        lorem ipsum
-                    </div>
-
            </div>
 
            <!-- footer con input di messaggi -->

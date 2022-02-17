@@ -85,6 +85,14 @@ const vue = new Vue ({
                     }
                     ],
                 },
-            ]
+            ],
+
+            active: 0,
+    },
+
+    methods: {
+        contactActive(index){
+            this.active = index;
+        }       
     }
 })
