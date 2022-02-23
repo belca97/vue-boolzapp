@@ -89,6 +89,7 @@ const vue = new Vue ({
 
             active: 0,
             newMessage:'',
+            ricercaContattoTesto: '',
     },
 
     methods: {
@@ -117,7 +118,17 @@ const vue = new Vue ({
             setTimeout(() => {
                 this.contacts[this.active].messages.push(rispostaMessaggio)                
             }, 1000);
-        }  
+        },
+        ricercaContatto(){
+            this.contacts.forEach((element) => {
+               if(element.name.toLowerCase().includes(this.ricercaContattoTesto.toLowerCase())) {
+                   element.visible = true;
+                } else {
+                    element.visible = false;
+                  }
+                }
+            )
+        }
     }
   }
 )
