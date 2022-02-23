@@ -104,7 +104,9 @@
            <!-- footer con input di messaggi -->
            <div class="footer-right">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio"
+                v-model="newMessage"
+                @keyup.enter="messaggioInviato">
                 <i class="fas fa-microphone"></i>
            </div>
 

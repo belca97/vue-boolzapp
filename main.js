@@ -88,11 +88,36 @@ const vue = new Vue ({
             ],
 
             active: 0,
+            newMessage:'',
     },
 
     methods: {
         contactActive(index){
             this.active = index;
-        }       
+        },
+        //creo una funzione che mi consenta di inviare un messagio con il keyup
+        // e che mi risponda dopo un secondo con un 'ok'
+        messaggioInviato(){
+
+            const oggettoNovo = {
+                date: '02/',
+                text: this.newMessage,
+                status: 'sent',
+            };
+
+            this.contacts[this.active].messages.push(oggettoNovo);
+            this.newMessage='';
+
+            const rispostaMessaggio = {
+                date: '02/',
+                text: 'ok',
+                status: 'received'
+            };
+
+            setTimeout(() => {
+                this.contacts[this.active].messages.push(rispostaMessaggio)                
+            }, 1000);
+        }  
     }
-})
+  }
+)
