@@ -100,8 +100,11 @@ const vue = new Vue ({
         // e che mi risponda dopo un secondo con un 'ok'
         messaggioInviato(){
 
+            //dayjs mi consente d'inserire una data e un orario con un formato riportando
+            //uno script di supporto nell'html
+
             const oggettoNovo = {
-                date: '02/',
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 text: this.newMessage,
                 status: 'sent',
             };
@@ -110,7 +113,7 @@ const vue = new Vue ({
             this.newMessage='';
 
             const rispostaMessaggio = {
-                date: '02/',
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 text: 'ok',
                 status: 'received'
             };
@@ -119,6 +122,9 @@ const vue = new Vue ({
                 this.contacts[this.active].messages.push(rispostaMessaggio)                
             }, 1000);
         },
+
+        //creo una funzione che mi consenta di cercare un contatto nella barra di ricerca
+        //
         ricercaContatto(){
             this.contacts.forEach((element) => {
                if(element.name.toLowerCase().includes(this.ricercaContattoTesto.toLowerCase())) {
